@@ -1,49 +1,32 @@
-import java.util.Random;
+
 
 public class bubbleSort {
 	
-	void bubSort(int number){
+	void bubEx(int number) {
+		testMain a = new testMain();
+		a.getArrays(number);
+		bubSort(a.orderedArray);
+		bubSort(a.ReversedArray);
+		bubSort(a.RandomArray);
+	}
+	
+	void bubSort(int arr[]){
 		long start;
 		long end;
-		int index;
 		int temp;
-		int steps = 0;
-		int orderedNumbers[] = new int[number];
-		int endArr[] = new int[number];
-		Random rnd = new Random();
-		
-		
-		for(int i = 0; i < orderedNumbers.length; i++) {
-			orderedNumbers[i] = i;
-		}
-		
-		for(int i = 0; i < endArr.length; i++) {
-			index = rnd.nextInt(orderedNumbers.length-i);
-			endArr[i] = orderedNumbers[index];
-			temp = orderedNumbers[orderedNumbers.length-i-1];
-			orderedNumbers[orderedNumbers.length-i-1] = orderedNumbers[index];
-			orderedNumbers[index] = temp;
-			
-			
-			
-		}
-		
+
 		start = System.nanoTime();
-		for(int i = 0; i < endArr.length; i++) {
-			for(int j = 0; j < endArr.length-i-1; j++) {
-				if(endArr[j+1] < endArr[j]) {
-					temp = endArr[j];
-					endArr[j] = endArr[j+1];
-					endArr[j+1] = temp;
-					steps++;
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr.length-i-1; j++) {
+				if(arr[j+1] < arr[j]) {
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
 				}
 			}
 		}
 		end = System.nanoTime();
-		for(int i = 0; i < endArr.length; i++) {
-			System.out.println(endArr[i]);
-			}
-		System.out.println("Time: " + (end-start) + " Nanoseconds in " + steps + " steps");
+		System.out.println("Time: " + (end-start) + " Nanoseconds");
 	}
 
 }

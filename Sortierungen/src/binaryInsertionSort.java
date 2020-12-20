@@ -16,7 +16,7 @@ public class binaryInsertionSort {
 		start = System.nanoTime();
 	    for (int i = 1; i < arr.length; i++) {
 	        int key = arr[i];
-	        int insertedPosition = findPosition(arr, 0, i - 1, key);
+	        int insertedPosition = binaerSuche(key, arr, i);
 	        for (int j = i - 1; j >= insertedPosition; j--) {
 	        	arr[j + 1] = arr[j];
 	        }
@@ -25,17 +25,25 @@ public class binaryInsertionSort {
         end = System.nanoTime();
         System.out.println("Time: " + (end-start) + " Nanoseconds");
 	}
-
-	public int findPosition(int[] arr, int start, int end, int key) {
-	    while (start <= end) {
-	        int mid = start + (end - start) / 2;
-
-	        if (key < arr[mid]) {
-	            end = mid - 1;
-	        } else {
-	            start = mid + 1;
-	        }
-	    }
-	    return start;
+	
+	int binaerSuche(int number, int rnd[], int rightx) {
+		int lowest = rnd[0];
+		int middle;
+		int right = rightx;
+		for(int i = 0; i < rnd.length; i++) {
+			if(lowest>right) {
+			}
+			middle = (int) (lowest+right)/2;
+			if(rnd[middle]<number) {
+				lowest = middle + 1;
+			}
+			if(rnd[middle]>number) {
+				right = middle - 1;
+			}
+			if(rnd[middle]==number) {
+				return middle;
+			}
+		}
+		return 0;
 	}
 }

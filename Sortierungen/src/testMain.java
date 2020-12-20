@@ -10,7 +10,7 @@ public class testMain {
 
 	public static void main(String[] args) {
 		testMain a = new testMain();
-		a.testEx(10000);
+		a.testEx(1000);
 	}
 	
 	void getArrays(int number) {

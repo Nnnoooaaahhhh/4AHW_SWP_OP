@@ -1,19 +1,15 @@
 
 public class binaryInsertionSort {
 	
+	@SuppressWarnings("static-access")
 	void binInEx(int number) {
 		testMain binIn= new testMain();
-		binIn.getArrays(number);
-		binaryInsertionSortx(binIn.orderedArray);
-		binaryInsertionSortx(binIn.ReversedArray);
+		binIn.rndArray(number);
 		binaryInsertionSortx(binIn.RandomArray);
 	}
 
 	public void binaryInsertionSortx(int arr[]) {
-		long start;
-		long end;
 
-		start = System.nanoTime();
 	    for (int i = 1; i < arr.length; i++) {
 	        int key = arr[i];
 	        int insertedPosition = binaerSuche(key, arr, i);
@@ -22,8 +18,6 @@ public class binaryInsertionSort {
 	        }
 	        arr[insertedPosition] = key;
 	    }
-        end = System.nanoTime();
-        System.out.println("Time: " + (end-start) + " Nanoseconds");
 	}
 	
 	int binaerSuche(int number, int rnd[], int rightx) {

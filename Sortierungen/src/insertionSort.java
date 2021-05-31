@@ -11,11 +11,9 @@ public class insertionSort {
 	
 	@SuppressWarnings("static-access")
 	void insertEx(int number) {
-		testMain in = new testMain();
-		in.rndArray(number);
-		//sort(in.orderedArray);
-		//sort(in.ReversedArray);
-		sort(in.RandomArray);
+		testMain a = new testMain();
+		int RandomArray[] = a.RandomArray.clone();
+		sort(RandomArray);
 	}
 
 	void sort(int arr[]) {

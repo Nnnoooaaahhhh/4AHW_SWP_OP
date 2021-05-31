@@ -14,10 +14,8 @@ public class bubbleSort {
 	@SuppressWarnings("static-access")
 	void bubEx(int number) {
 		testMain a = new testMain();
-		a.rndArray(number);
-		//bubSort(a.orderedArray);
-		//bubSort(a.ReversedArray);
-		bubSort(a.RandomArray);
+		int RandomArray[] = a.RandomArray.clone();
+		bubSort(RandomArray);
 		
 	}
 	

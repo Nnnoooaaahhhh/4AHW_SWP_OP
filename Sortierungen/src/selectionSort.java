@@ -12,11 +12,9 @@ public class selectionSort {
 	
 	@SuppressWarnings("static-access")
 	void selSortEx(int number) {
-		testMain sel = new testMain();
-		sel.rndArray(number);
-		//sort(sel.orderedArray);
-		//sort(sel.ReversedArray);
-		sort(sel.RandomArray);
+		testMain a = new testMain();
+		int RandomArray[] = a.RandomArray.clone();
+		sort(RandomArray);
 	}
 	
 

@@ -11,11 +11,9 @@ public class stableSelectionSort {
 	
 	@SuppressWarnings("static-access")
 	void selSortStableEx(int number) {
-		testMain selSta = new testMain();
-		selSta.rndArray(number);
-		//sort(selSta.orderedArray);
-		//sort(selSta.ReversedArray);
-		sort(selSta.RandomArray);
+		testMain a = new testMain();
+		int RandomArray[] = a.RandomArray.clone();
+		sort(RandomArray);
 	}
 	
 
@@ -31,14 +29,16 @@ public class stableSelectionSort {
             for (int j = i + 1; j < n; j++) {
             	comp++;
                 if (a[min] > a[j]) {
+                	switchS++;
                     min = j; 
                     }
             }
             int key = a[min]; 
             while (min > i)  
             { 
-            	switchS++;
+            	
                 a[min] = a[min - 1]; 
+                
                 min--; 
             } 
             a[i] = key; 

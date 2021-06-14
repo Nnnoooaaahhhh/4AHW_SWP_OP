@@ -25,7 +25,7 @@ public class testMain {
 		
 	}
 	
-	float getMedian(ArrayList <Integer> arrL) {
+	int getMedian(ArrayList <Integer> arrL) {
 		if(arrL.size()%2!=0) {
 			return arrL.get(arrL.size()/2);
 		} 
@@ -37,7 +37,7 @@ public class testMain {
 		
 	}
 	
-	float getAvg(ArrayList <Integer> arrL) {
+	int getAvg(ArrayList <Integer> arrL) {
 		int  sum = 0;
 		for(int i = 0; i < arrL.size(); i++) {
 			sum = sum + arrL.get(i);
@@ -55,6 +55,7 @@ public class testMain {
 		long staSel = 0;
 		long ins = 0;
 		long quick = 0;
+		long merge = 0;
 		
 		
 
@@ -63,6 +64,7 @@ public class testMain {
 		selectionSort e = new selectionSort();
 		insertionSort c = new insertionSort();
 		quickSort q = new quickSort();
+		mergeSort m = new mergeSort();
 		
 		for(int i = 0; i < length; i++) {
 			a.rndArray(number);
@@ -93,6 +95,11 @@ public class testMain {
 			q.quickSortEx(number);
 			end = System.nanoTime();
 			quick = quick + (start-end);
+			
+			start = System.nanoTime();
+			m.mergeSortEx(number);
+			end = System.nanoTime();
+			merge = merge + (start-end);
 		}
 		
 		
@@ -111,6 +118,9 @@ public class testMain {
 		q.quickS.sort(null);
 		q.quickComp.sort(null);
 		q.quickSwitchS.sort(null);
+		m.mergeS.sort(null);
+		m.mergeComp.sort(null);
+		m.mergeSwitchS.sort(null);
 
 
 		
@@ -144,6 +154,12 @@ public class testMain {
 		System.out.println("Average All-Steps " + Math.abs(a.getAvg(q.quickS)) + " Median: " + Math.abs(a.getMedian(q.quickS)));
 		System.out.println("Average Comparison Steps: " + Math.abs(a.getAvg(q.quickComp)) + " Median: " + Math.abs(a.getMedian(q.quickComp)));
 		System.out.println("Average Switch Steps: " + Math.abs(a.getAvg(q.quickSwitchS)) + " Median: " + Math.abs(a.getMedian(q.quickSwitchS)));
+		System.out.println();
+		
+		System.out.println("Mergesort average: " + Math.abs(merge/length/1000000) + " Milliseconds in average");
+		System.out.println("Average All-Steps " + Math.abs(a.getAvg(m.mergeS)) + " Median: " + Math.abs(a.getMedian(m.mergeS)));
+		System.out.println("Average Comparison Steps: " + Math.abs(a.getAvg(m.mergeComp)) + " Median: " + Math.abs(a.getMedian(m.mergeComp)));
+		System.out.println("Average Switch Steps: " + Math.abs(a.getAvg(m.mergeSwitchS)) + " Median: " + Math.abs(a.getMedian(m.mergeSwitchS)));
 		System.out.println();
 
 	}
